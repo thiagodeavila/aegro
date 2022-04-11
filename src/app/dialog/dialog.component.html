@@ -25,6 +25,6 @@
   </div>
 
   <div class="dialog-action">
-    <button (click)="create()">+ {{ getName() }}</button>
+    <button (click)="create()" [disabled]="disabled()">+ {{ getName() }}</button>
   </div>
 </div>

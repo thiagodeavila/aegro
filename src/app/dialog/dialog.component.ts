@@ -1,5 +1,5 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { FarmService } from 'src/services/farm.service';
 import { PlotService } from 'src/services/plot.service';
 import { ProductionService } from 'src/services/production.service';
@@ -20,17 +20,17 @@ export class DialogComponent implements OnInit {
   form: FormGroup;
 
   farmFields: object = {
-    name: ''
+    name: [null, Validators.required],
   };
 
   plotFields: object = {
-    name: '',
-    area: null
+    name: [null, Validators.required],
+    area: [null, Validators.required]
   };
 
   productionFields: object = {
-    name: '',
-    weight: null
+    name: [null, Validators.required],
+    weight: [null, Validators.required]
   };
 
   constructor(
@@ -90,4 +90,7 @@ export class DialogComponent implements OnInit {
     this.closeDialog.emit();
   }
 
+  disabled(): boolean {
+    return this.form.invalid;
+  }
 }
