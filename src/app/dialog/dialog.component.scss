@@ -1,0 +1,77 @@
+@import 'src/styles/colors';
+
+:host {
+  position: fixed;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0,0,0,0.3);
+
+  .dialog-cotainer {
+    position: relative;
+
+    width: 400px;
+    padding: 40px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    background-color: #fff;
+    border-radius: 8px;
+
+    .close-button {
+      position: absolute;
+      display: flex;
+      top: 15px;
+      right: 15px;
+      padding: 5px;
+      border-radius: 4px;
+      cursor: pointer;
+
+      &:hover {
+        background-color: $grey6;
+      }
+
+      img {
+        width: 20px;
+        height: 20px;
+      }
+    }
+  }
+
+  input[type=text], input[type=number], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid $grey5;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+
+  .dialog-action {
+    button {
+      display: inline-block;
+      width: 100%;
+      padding: 15px 0;
+      color: $white;
+      font-weight: bold;
+      font-size: 16px;
+      line-height: 20px;
+      text-align: center;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      border-radius: 8px;
+      background-color: $aegro;
+
+      &:hover {
+        filter: brightness(1.05);
+      }
+    }
+  }
+}

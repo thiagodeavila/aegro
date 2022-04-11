@@ -1,0 +1,30 @@
+<div class="dialog-cotainer">
+  <div class="close-button" (click)="close()">
+    <img src="assets/images/x.svg">
+  </div>
+
+  <h1>{{ getName() }}</h1>
+
+  <div class="dialog-form">
+    <form [formGroup]="form">
+      <ng-container *ngIf="getRoute() === 'farm'">
+        <input type="text" placeholder="Nome da Fazenda" formControlName="name">
+      </ng-container>
+
+      <ng-container *ngIf="getRoute() === 'plot'">
+        <input type="text" placeholder="Nome do Talhão" formControlName="name">
+        <input type="number" placeholder="Área do Talhão" formControlName="area">
+      </ng-container>
+
+      <ng-container *ngIf="getRoute() === 'productivity'">
+        <input type="text" placeholder="Código da Produção" formControlName="name">
+        <input type="number" placeholder="Peso da Produção" formControlName="weight">
+      </ng-container>
+
+    </form>
+  </div>
+
+  <div class="dialog-action">
+    <button (click)="create()">+ {{ getName() }}</button>
+  </div>
+</div>

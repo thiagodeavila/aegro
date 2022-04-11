@@ -1,0 +1,46 @@
+<div class="table-header-container" *ngIf="getRoute() === 'farm'">
+  <h6><b>Nome da Fazenda</b></h6>
+  <h6><b>Número de Talhões</b></h6>
+  <h6 *ngIf="editable"><b>Ações</b></h6>
+  <h6 *ngIf="!editable"><b>Produção</b></h6>
+</div>
+<div class="table-header-container" *ngIf="getRoute() === 'plot'">
+  <h6><b>Nome do Talhão</b></h6>
+  <h6><b>Área do Talhão</b></h6>
+  <h6 *ngIf="editable"><b>Ações</b></h6>
+  <h6 *ngIf="!editable"><b>Produção</b></h6>
+</div>
+<div class="table-header-container" *ngIf="getRoute() === 'productivity'">
+  <h6><b>Código da Produção</b></h6>
+  <h6><b>Peso</b></h6>
+  <h6 *ngIf="editable"><b>Ações</b></h6>
+</div>
+
+<div class="table-body-container">
+  <ng-container *ngIf="getRoute() === 'farm'">
+    <div class="table-item" *ngFor="let item of data" (click)="accessItem(item.id)">
+      <p>{{ item.name }}</p>
+      <p>{{ item.plots?.length || 0 }}</p>
+      <p *ngIf="!editable">{{ getFarmProduction(item.id) }} t</p>
+      <p *ngIf="editable" class="remove">remover</p>
+    </div>
+  </ng-container>
+
+  <ng-container *ngIf="getRoute() === 'plot'">
+    <div class="table-item" *ngFor="let item of data" (click)="accessItem(item.id)">
+      <p>{{ item.name }}</p>
+      <p>{{ item.area || 0 }} m²</p>
+      <p *ngIf="!editable">{{ getPlotProduction(item.id) }} t</p>
+      <p *ngIf="editable" class="remove">remover</p>
+    </div>
+  </ng-container>
+
+  <ng-container *ngIf="getRoute() === 'productivity'">
+    <div class="table-item" *ngFor="let item of data">
+      <p>{{ item.name }}</p>
+      <p *ngIf="!editable">{{ item.weight || 0 }} toneladas</p>
+      <p *ngIf="editable">{{ item.weight || 0 }} t</p>
+      <p *ngIf="editable" class="remove">remover</p>
+    </div>
+  </ng-container>
+</div>

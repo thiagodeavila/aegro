@@ -1,0 +1,61 @@
+@import 'src/styles/colors';
+
+:host {
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+
+  h6 {
+    width: 120px;
+    text-align: center;
+
+    &:first-child {
+      width: 150px;
+      text-align: left;
+    }
+  }
+
+  .table-header-container {
+    position: sticky;
+    top: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 20px 0;
+    border-bottom: 1px solid $grey6;
+    background-color: $white;
+  }
+
+  .table-body-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    .table-item {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 20px 0;
+      cursor: pointer;
+
+      &:hover {
+        background-color: $grey6;
+      }
+    }
+
+    p {
+      width: 120px;
+      text-align: center;
+      color: $grey3;
+
+      &:first-child {
+        width: 150px;
+        text-align: left;
+      }
+
+      &.remove {
+        color: $red;
+      }
+    }
+  }
+}

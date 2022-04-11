@@ -7,9 +7,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
+  dialogActive: boolean;
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  create(): void {
+    this.dialogActive = true;
+  }
+
+  close(): void {
+    this.dialogActive = false;
   }
 
 }

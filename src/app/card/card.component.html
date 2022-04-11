@@ -1,0 +1,21 @@
+<div class="card-title-container">
+  <div class="card-subtitle-container">
+    <div class="card-title-icon">
+      <ng-content select="[icon]"></ng-content>
+    </div>
+
+    <h6 class="card-title-subtitle">
+      <ng-content select="[subtitle]"></ng-content>
+    </h6>
+  </div>
+
+  <h1 class="card-title-text">
+    <ng-content select="[title]"></ng-content>
+  </h1>
+</div>
+
+<ng-content></ng-content>
+
+<div class="card-action" *ngIf="editable">
+  <button (click)="click()">+ {{ getName() }}</button>
+</div>

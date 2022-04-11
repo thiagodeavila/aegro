@@ -1,1 +1,33 @@
-<p>hello aegro</p>
+<app-card [editable]="true" (clickEmitter)="create()">
+  <ng-container icon>
+    <img src="assets/images/house.svg">
+  </ng-container>
+
+  <ng-container subtitle>
+    Lista e Cadastro
+  </ng-container>
+
+  <ng-container title>
+    Acervo de Fazendas
+  </ng-container>
+
+  <app-table [editable]="true"></app-table>
+</app-card>
+
+<app-card>
+  <ng-container icon>
+    <img src="assets/images/speed.svg">
+  </ng-container>
+
+  <ng-container subtitle>
+    Relatório de produtividade
+  </ng-container>
+
+  <ng-container title>
+    Relatório
+  </ng-container>
+
+  <app-table></app-table>
+</app-card>
+
+<app-dialog *ngIf="dialogActive" (closeDialog)="close()"></app-dialog>
